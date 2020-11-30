@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/bg_app"
+    tools:context=".MainActivity">
+
+<!--Image Logo-->
+    <ImageView
+        android:id="@+id/logo"
+        android:layout_width="158dp"
+        android:layout_height="37dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="120dp"
+        android:layout_marginTop="30dp"
+        android:src="@drawable/jenius_logo_white"
+        />
+
+<!-- Hero Image   -->
+    <ImageView
+        android:id="@+id/jenius_illu"
+        android:layout_width="wrap_content"
+        android:layout_height="301dp"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="-3dp"
+        android:layout_below="@id/logo"
+        android:src="@drawable/jenius_illustration" />
+
+<!--  Heading  -->
+    <TextView
+        android:id="@+id/tv_heading"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/jenius_illu"
+        android:layout_marginStart="11dp"
+        android:gravity="center_horizontal"
+        android:text="@string/heading"
+        android:textAppearance="@style/heading" />
+
+<!-- SubHeading -->
+    <TextView
+        android:id="@+id/tv_subheading"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tv_heading"
+        android:layout_alignParentStart="true"
+        android:gravity="center_horizontal"
+        android:text="@string/subheading"
+        android:textAppearance="@style/subheading" />
+
+<!-- Slider -->
+        <LinearLayout
+            android:id="@+id/slider"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="40dp"
+            android:layout_marginRight="30dp"
+            android:layout_below="@id/tv_subheading"
+            android:orientation="horizontal"
+            android:gravity="center_horizontal|center_vertical">
+
+            <Button
+                android:id="@+id/hButton1"
+                android:background="@color/btnNonActive"
+                android:layout_width="25dp"
+                android:layout_height="4dp"
+                android:layout_marginRight="5dp" />
+
+            <Button
+                android:id="@+id/hButton2"
+                android:background="@color/btnNonActive"
+                android:layout_width="25dp"
+                android:layout_height="4dp"
+                android:layout_marginRight="5dp" />
+
+            <Button
+                android:id="@+id/hButton3"
+                android:background="@color/btnNonActive"
+                android:layout_width="25dp"
+                android:layout_height="4dp"
+                android:layout_marginRight="5dp" />
+            <Button
+                android:id="@+id/hButton4"
+                android:background="@color/btnActive"
+                android:layout_width="25dp"
+                android:layout_height="4dp"
+                android:layout_marginRight="5dp" />
+        </LinearLayout>
+
+<!-- Button Register -->
+    <Button
+        android:id="@+id/btn_register"
+        android:layout_width="330dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/slider"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="41dp"
+        android:background="@drawable/btn_register"
+        android:gravity="center_horizontal|center_vertical"
+        android:text="@string/register"
+        android:textColor="#FFFFFF" />
+
+<!-- Signin Action Text -->
+    <TextView
+        android:id="@+id/tv_signin"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/btn_register"
+        android:layout_marginTop="4dp"
+        android:gravity="center_horizontal|center_vertical"
+        android:text="@string/signin"
+        android:textAppearance="@style/tv_signin" />
+
+<!-- Version app -->
+    <TextView
+        android:id="@+id/tv_appversion"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tv_signin"
+        android:layout_marginTop="46dp"
+        android:gravity="center_horizontal|center_vertical"
+        android:text="@string/app_version"
+        android:textAppearance="@style/tv_appversion" />
+</RelativeLayout>

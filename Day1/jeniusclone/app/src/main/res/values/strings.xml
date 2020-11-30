@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">jeniusclone</string>
+    <string name="heading">Experience Banking \n Reinvented</string>
+    <string name="subheading">
+        Now you can manage all your \n
+        transactions, savings and debit card \n
+        on your mobile
+    </string>
+    <string name="register">REGISTER</string>
+    <string name="signin">I ALREADY HAVE AN ACCOUNT</string>
+    <string name="app_version">Version 2.39.4(7622)</string>
+
+</resources>
