@@ -16,10 +16,12 @@ public class PulsaBuyer {
     @Expose
     private String phone_number;
 
+    public PulsaBuyer(String code, String phone_number) {
+        this.code = code;
+        this.phone_number = phone_number;
+    }
 
-
-
-//----------------Getter Setter----------
+    //----------------Getter Setter----------
 
 
     public Integer getId() {

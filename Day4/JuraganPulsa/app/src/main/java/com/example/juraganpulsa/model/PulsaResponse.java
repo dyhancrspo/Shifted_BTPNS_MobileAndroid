@@ -42,4 +42,8 @@ public class PulsaResponse {
     public void setData(Pulsa data) {
         this.data = data;
     }
+
+    public int getCode() {
+        return 0;
+    }
 }

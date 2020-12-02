@@ -1,5 +1,7 @@
 package com.example.juraganpulsa.adapter;
 
+import android.annotation.SuppressLint;
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
@@ -7,19 +9,27 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.lifecycle.LifecycleOwner;
 import androidx.recyclerview.widget.RecyclerView;
 
 
+import com.example.juraganpulsa.AddPulsa;
 import com.example.juraganpulsa.MainActivity;
 import com.example.juraganpulsa.R;
 import com.example.juraganpulsa.model.Pulsa;
+import com.example.juraganpulsa.model.PulsaBuyer;
+import com.example.juraganpulsa.model.PulsaListResponse;
+import com.example.juraganpulsa.model.PulsaResponse;
 import com.example.juraganpulsa.util.Util;
+import com.example.juraganpulsa.viewmodels.PulsaViewModel;
+
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.Optional;
@@ -30,17 +40,27 @@ public class PulsaAdapter extends RecyclerView.Adapter<PulsaAdapter.PulsaViewHol
 
     Context context;
     ArrayList<Pulsa> pulsa;
+    ArrayList<PulsaBuyer> pulsaBuyer;
     RelativeLayout checkoutRl;
     EditText nomorHpEditText;
     TextView pulsaPayTv,paymentTv;
+    ImageView ic_close;
+    LinearLayout btn_pay;
 
-    public PulsaAdapter(Context context, ArrayList<Pulsa> pulsa, RelativeLayout checkoutRl, EditText nomorHpEditText) {
+    ProgressDialog progressDialog;
+    PulsaViewModel pulsaViewModel;
+    PulsaResponse pulsaResponse;
+
+    public PulsaAdapter(Context context, ArrayList<Pulsa> pulsa, RelativeLayout checkoutRl, EditText nomorHpEditText, TextView pulsaPayTv, TextView paymentTv, ImageView ic_close, LinearLayout btn_pay) {
         this.context = context;
         this.pulsa = pulsa;
         this.checkoutRl = checkoutRl;
         this.nomorHpEditText = nomorHpEditText;
+        this.pulsaPayTv = pulsaPayTv;
+        this.paymentTv = paymentTv;
+        this.ic_close = ic_close;
+        this.btn_pay = btn_pay;
     }
-
 
     @NonNull
     @Override
@@ -56,26 +76,20 @@ public class PulsaAdapter extends RecyclerView.Adapter<PulsaAdapter.PulsaViewHol
 
 
         holder.pulsaLl.setOnClickListener(new View.OnClickListener() {
+            @SuppressLint("WrongConstant")
             @Override
             public void onClick(View v) {
                 Toast.makeText(v.getContext(),pulsa.get(position).getNominal().toString(),Toast.LENGTH_SHORT).show();
-//                Util.expand(checkoutRl,2);
-//                checkoutRl.setVisibility(View.VISIBLE);
-
-
-                Intent intent =
-                        new Intent( context, MainActivity.class);
-                Bundle bundle = new Bundle();
-                bundle.putString("mode", "edit");
-                bundle.putString("id", pulsa.get(position).getId().toString());
-                bundle.putString("code", pulsa.get(position).getCode());
-                bundle.putString("price", pulsa.get(position).getPrice().toString());
-                bundle.putString("nominal", pulsa.get(position).getNominal().toString());
-                bundle.putString("phone", String.valueOf(nomorHpEditText));
-                intent.putExtras(bundle);
-                context.startActivity(intent);
-
-
+                Util.expand(checkoutRl,2);
+//                checkoutRl.setVisibility(0);
+                pulsaPayTv.setText(pulsa.get(position).getNominal().toString());
+                paymentTv.setText("IDR "+pulsa.get(position).getPrice().toString());
+            }
+        });
+        ic_close.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Util.collapse(checkoutRl,2);
             }
         });
     }
@@ -90,6 +104,7 @@ public class PulsaAdapter extends RecyclerView.Adapter<PulsaAdapter.PulsaViewHol
         @BindView(R.id.nominalTextView) TextView nominalTv;
         @BindView(R.id.priceTextView)  TextView priceTv;
         @BindView(R.id.pulsaLl) LinearLayout pulsaLl;
+
 
         public PulsaViewHolder(@NonNull View itemView) {
             super(itemView);

@@ -11,21 +11,30 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.juraganpulsa.adapter.PulsaAdapter;
 import com.example.juraganpulsa.model.Pulsa;
+import com.example.juraganpulsa.model.PulsaBuyer;
 import com.example.juraganpulsa.viewmodels.PulsaViewModel;
 
 import java.util.ArrayList;
 import java.util.List;
 
+import butterknife.OnClick;
+
 public class MainActivity extends AppCompatActivity {
 
     ArrayList<Pulsa> pulsaArrayList = new ArrayList<>();
     PulsaAdapter pulsaAdapter;
-    RelativeLayout checkourRl;
+    RelativeLayout checkoutRl;
+    LinearLayout btn_pay;
+    TextView pulsaPayTv, paymentTv;
+    ImageView ic_close;
     EditText nomorHpEditText;
     RecyclerView rvPulsa;
     PulsaViewModel pulsaViewModel;
@@ -38,19 +47,22 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         findViewById();
-        onClickGroup();
+
         initData();
     }
 
     void findViewById(){
         rvPulsa = findViewById(R.id.pulsaRecyclerView);
-        refreshTextView = (TextView) findViewById(R.id.refreshTextView);
-        addTextView = (TextView) findViewById(R.id.addTextView);
+        pulsaPayTv = (TextView) findViewById(R.id.pulsaPayTv);
+        paymentTv = (TextView) findViewById(R.id.paymentTv);
+        ic_close = (ImageView) findViewById(R.id.ic_close);
+        checkoutRl = (RelativeLayout) findViewById(R.id.checkoutRl);
+        btn_pay = (LinearLayout) findViewById(R.id.btn_pay);
     }
 
     private void initData() {
         if (pulsaAdapter == null) {
-            pulsaAdapter = new PulsaAdapter(MainActivity.this, pulsaArrayList, checkourRl, nomorHpEditText);
+            pulsaAdapter = new PulsaAdapter(MainActivity.this, pulsaArrayList, checkoutRl, nomorHpEditText, pulsaPayTv, paymentTv, ic_close, btn_pay);
             rvPulsa.setLayoutManager(new GridLayoutManager(this,2));
             rvPulsa.setAdapter(pulsaAdapter);
             rvPulsa.setItemAnimator(new DefaultItemAnimator());
@@ -79,28 +91,6 @@ public class MainActivity extends AppCompatActivity {
             pulsaAdapter.notifyDataSetChanged();
         });
     }
-    void onClickGroup(){
-        refreshTextView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                getListPulsa("1","20");
-            }
-        });
-        addTextView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent( getApplicationContext(), AddPulsa.class);
-                Bundle bundle = new Bundle();
-                bundle.putString("mode", "add");
-                intent.putExtras(bundle);
-                startActivity(intent);
-            }
-        });
-    }
 
-    @Override
-    protected void onResume() {
-        super.onResume();
-        getListPulsa("1","20");
-    }
+
 }

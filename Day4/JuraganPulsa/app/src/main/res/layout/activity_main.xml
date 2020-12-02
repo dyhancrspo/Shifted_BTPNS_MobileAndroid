@@ -52,52 +52,13 @@
         android:layout_marginTop="20dp"
         android:layout_marginRight="10dp" />
 
-
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_centerInParent="true"
-        android:layout_marginBottom="3dp"
-        android:visibility="gone"
-        android:orientation="vertical">
-
-        <TextView
-            android:id="@+id/addTextView"
-            style="@style/floatingButton"
-            android:layout_width="wrap_content"
-            android:layout_height="50dp"
-            android:layout_alignParentBottom="true"
-            android:layout_centerInParent="true"
-            android:layout_marginBottom="3dp"
-            android:background="@drawable/bt_gradient"
-            android:elevation="10dp"
-            android:text="@string/tambah_data"
-            android:textColor="#ffffff"
-            android:textSize="20sp"
-            android:textStyle="bold" />
-
-        <TextView
-            android:id="@+id/refreshTextView"
-            style="@style/floatingButton"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:layout_alignParentBottom="true"
-            android:layout_centerInParent="true"
-            android:background="@drawable/bt_gradient"
-            android:text="@string/refresh_data"
-            android:textColor="#ffffff"
-            android:textSize="20sp"
-            android:textStyle="bold" />
-    </LinearLayout>
-
 //--------------Checkout Detail------------------------------------//
     <RelativeLayout
         android:id="@+id/checkoutRl"
         android:layout_width="match_parent"
         android:layout_height="230dp"
         android:orientation="vertical"
-        android:visibility="visible"
+        android:visibility="gone"
         android:layout_alignParentBottom="true"
         android:background="@color/white">
 
@@ -110,14 +71,14 @@
             android:layout_marginLeft="10dp"
             android:layout_marginTop="10dp"/>
 
-<!--        <ImageView-->
-<!--            android:id="@+id/ic_close"-->
-<!--            android:layout_width="wrap_content"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:src="@drawable/ic_baseline_close_24"-->
-<!--            android:layout_marginTop="10dp"-->
-<!--            android:layout_alignParentRight="true"-->
-<!--            android:layout_marginRight="10dp"/>-->
+        <ImageView
+            android:id="@+id/ic_close"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_baseline_minimaze_24"
+            android:layout_marginTop="10dp"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="10dp"/>
 
         <LinearLayout
             android:id="@+id/pulsaPayLi"
