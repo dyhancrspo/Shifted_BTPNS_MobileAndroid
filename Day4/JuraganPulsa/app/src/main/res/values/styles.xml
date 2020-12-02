@@ -1,0 +1,53 @@
+<resources>
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+    </style>
+
+
+
+
+
+
+
+
+<!--  Style PULSA LI  -->
+    <style name="stylePulsa">
+        <item name="android:textSize">
+            28sp
+        </item>
+        <item name="android:textColor">
+            #FFFFFF
+        </item>
+        <item name="android:shadowColor">
+            #40000000
+        </item>
+        <item name="android:shadowDx">
+            0
+        </item>
+        <item name="android:shadowDy">
+            4
+        </item>
+        <item name="android:shadowRadius">
+            4
+        </item>
+    </style>
+
+
+
+    <style name="floatingButton" parent="@android:style/TextAppearance.Medium">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:layout_marginBottom">10dp</item>
+        <item name="android:layout_marginLeft">16dp</item>
+        <item name="android:layout_marginRight">16dp</item>
+        <item name="android:layout_marginTop">15dp</item>
+        <item name="android:textAllCaps">false</item>
+    </style>
+
+</resources>

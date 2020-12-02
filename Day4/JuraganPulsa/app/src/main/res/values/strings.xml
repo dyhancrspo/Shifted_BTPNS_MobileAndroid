@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">JuraganPulsa</string>
+    <string name="nominal">Nominal</string>
+    <string name="price">Price</string>
+    <string name="tambah_data">Tambah Data</string>
+    <string name="refresh_data">Refresh Data</string>
+    <string name="buynow">Buy Now</string>
+    <string name="details_order">Details Order</string>
+</resources>
